@@ -19,7 +19,7 @@ content: |
 
   .. list-table:: 
      :header-rows: 1
-     :widths: 20 40
+     :widths: 35 65
 
      * - Option
        - Description
@@ -102,8 +102,8 @@ content: |
                  :manual:`SCRAM-SHA-1 </core/security-scram/>` as its
                  authentication mechanism.
                  
-                 Provide the :guilabel:`Username`, :guilabel:`Password`,
-                 and :manual:`Authentication Database
+                 If selected, you must provide the :guilabel:`Username`,
+                 :guilabel:`Password`, and :manual:`Authentication Database
                  </core/security-users/#user-authentication-database>`
                  to authenticate the user.
 
@@ -119,11 +119,11 @@ content: |
                content: |
                  Select :guilabel:`SCRAM-SHA-256` if the deployment uses
                  :manual:`SCRAM-SHA-256 </core/security-scram/>` as its
-                 authentication mechanism (*New in MongoDB 4.0*). If
-                 selected, you must provide the :guilabel:`Username`,
+                 authentication mechanism (*New in MongoDB 4.0*). 
+                 
+                 If selected, you must provide the :guilabel:`Username`,
                  :guilabel:`Password`, and :manual:`Authentication
-                 Database
-                 </core/security-users/#user-authentication-database>`
+                 Database </core/security-users/#user-authentication-database>`
                  to authenticate the user.
 
                  For more information on the ``SCRAM``
@@ -136,9 +136,11 @@ content: |
 
                  Select :guilabel:`Kerberos` if the deployment uses
                  :manual:`Kerberos </core/kerberos/>` as
-                 its authentication mechanism. If selected, you must
-                 provide the :manual:`Principal </core/kerberos/#principals>`
-                 and :guilabel:`Service Name` to authenticate the user. 
+                 its authentication mechanism.
+                 
+                 If selected, you must provide the :manual:`Principal
+                 </core/kerberos/#principals>` and :guilabel:`Service
+                 Name` to authenticate the user.
 
                  You can direct |compass| to
                  :guilabel:`Canonicalize the Host Name` by setting the
@@ -207,10 +209,10 @@ content: |
 
                  Select :guilabel:`LDAP` if the deployment
                  uses :manual:`LDAP </core/security-ldap-external/>`
-                 as its authentication mechanism. If selected, you
-                 must provide the :guilabel:`Username` and
-                 :guilabel:`Password` to authenticate
-                 the user.
+                 as its authentication mechanism. 
+                 
+                 If selected, you must provide the :guilabel:`Username`
+                 and :guilabel:`Password` to authenticate the user.
 
              - id: x509
                name: X.509
@@ -218,7 +220,27 @@ content: |
 
                  Select :guilabel:`X.509` if the deployment uses
                  :manual:`X.509 </core/security-x.509/>` as its
-                 authentication mechanism. 
+                 authentication mechanism.
+
+                 To connect to |compass| using a :ref:`self-managed
+                 X.509 certificate <self-managed-x509>` or an
+                 :manual:`auto-generated X.509 certificate
+                 </core/security-x.509/>` managed by |service| to
+                 authenticate a MongoDB database, perform the
+                 following steps:
+
+                 1. In |compass|, choose :guilabel:`Fill in connection fields individually`.
+                 2. In the :guilabel:`Authentication` dropdown,  select ``X.509``.
+                 3. Select :guilabel:`More Options`.
+                 4. In the :guilabel:`SSL` dropdown, select :guilabel:`Server and Client Validation`.
+                 5. Add the same path to the downloaded
+                    |service|-managed certificate, or the self-managed
+                    certificate (depending on which you use) to each of
+                    these fields: :guilabel:`Certificate Authority`,
+                    :guilabel:`Client Certificate`,  and :guilabel:`Client Private Key`.
+
+                 To learn more, see :compass:`Connect to MongoDB </connect/>` in the
+                 |compass| documentation.
                  
                  .. note::
 
